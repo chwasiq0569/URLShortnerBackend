@@ -6,7 +6,7 @@ import { createShortURL, getShortURL } from './controller/short.js';
 
 const app = express();
 
-mongoose.connect("mongodb+srv://admin:admin@cluster0.bekcudd.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(
   cors({
