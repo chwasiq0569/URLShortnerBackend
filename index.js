@@ -1,8 +1,9 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import router from "./routes/short.js";
-import { createShortURL, getShortURL } from './controller/short.js';
+const express = require('express');
+const mongoose = require('mongoose')
+const cors = require('cors');
+// import cors from 'cors';
+const router = require("./routes/short.js");
+// import { createShortURL, getShortURL } from './controller/short.js';
 
 const app = express();
 

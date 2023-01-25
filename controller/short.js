@@ -1,9 +1,10 @@
-import shortUrl from '../model/shortStore.js';
-import mongoose from 'mongoose';
-import moment from 'moment';
-import shortId from 'shortid';
+// import shortUrl from '../model/shortStore.js';
+const shortUrl = require('../model/shortStore.js')
+const mongoose = require('mongoose')
+const shortId = require('shortId')
+const moment = require('moment');
 
-export const createShortURL = async (req, res) => {
+module.exports.createShortURL = async (req, res) => {
     const found = await shortUrl.find({ full: req.body.full });
     console.log("found", found[0])
     if (found.length > 0) {
@@ -28,7 +29,7 @@ export const createShortURL = async (req, res) => {
     }
 }
 
-export const getShortURL = async (req, res) => {
+module.exports.getShortURL = async (req, res) => {
     const short = await shortUrl.findOne({ short: req.params.shortUrl });
     if (short == null) return res.sendStatus(404);
     res.redirect(`${short.full}`);

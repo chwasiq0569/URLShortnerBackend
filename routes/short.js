@@ -1,9 +1,8 @@
-import express from 'express';
-
-import { createShortURL, getShortURL } from "../controller/short.js";
-var router = express.Router();
+const express = require('express');
+const { createShortURL, getShortURL } = require("../controller/short.js");
+const router = express.Router();
 
 router.post("/short", createShortURL);
 router.get("/:shortUrl", getShortURL);
 
-export default router;
+module.exports = router
